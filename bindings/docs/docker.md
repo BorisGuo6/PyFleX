@@ -29,8 +29,8 @@ docker run \
 For example
 ```
 docker run \
-  -v ~/Documents/PyFleX/:/workspace/PyFleX \
-  -v ~/anaconda3/:/workspace/anaconda \
+  -v /home/transfer/chenhn/PyFleX:/workspace/PyFleX \
+  -v /home/transfer/anaconda3:/workspace/anaconda \
   -it yunzhuli/pyflex_16_04_cuda_9_1:latest
 ```
 
@@ -47,7 +47,7 @@ cd bindings; mkdir build; cd build; cmake ..; make -j
 
 - Now that PyFleX has properly compiled. You can move outside docker, export the environment variables and start playing with PyFleX.
 ```
-cd PATH_TO_PyFleX
+cd /workspace/PyFleX
 export PYFLEXROOT=${PWD}
 export PYTHONPATH=${PYFLEXROOT}/bindings/build:$PYTHONPATH
 export LD_LIBRARY_PATH=${PYFLEXROOT}/external/SDL2-2.0.4/lib/x64:$LD_LIBRARY_PATH
